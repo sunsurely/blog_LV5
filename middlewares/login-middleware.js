@@ -14,7 +14,7 @@ const loginMiddleware = async (req, res, next) => {
   }
 
   try {
-    const { usersId } = jwt.verify(authToken, 'costomized-secret-key');
+    const { usersId } = jwt.verify(authToken, process.env.COOKIE_SECRET);
 
     const user = await Users.findOne({
       where: usersId,

@@ -5,7 +5,7 @@ const likeMiddleware = async (req, res, next) => {
   const { authorization } = req.cookies;
   const [authType, authToken] = (authorization ?? '').split(' ');
 
-  const { usersId } = jwt.verify(authToken, 'costomized-secret-key');
+  const { usersId } = jwt.verify(authToken, process.env.COOKIE_SECRET);
 
   if (usersId) {
     const user = await Users.findOne({

@@ -67,7 +67,7 @@ class PostRepository {
       },
       {
         where: {
-          [Op.and]: [{ postId }, { usersId }],
+          [Op.and]: [{ postId }, { UsersId: usersId }],
         },
       },
     );
